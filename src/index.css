@@ -1,0 +1,17 @@
+@import "tailwindcss";
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+  /* border: 1px solid red; */
+
+  font-family: "Roboto Mono", monospace;
+  font-optical-sizing: auto;
+  /* font-weight: <weight>; */
+  font-style: normal;
+}
+
+body {
+  background-color: #ffffff;
+  /* color: #ccd6f6; */
+}
