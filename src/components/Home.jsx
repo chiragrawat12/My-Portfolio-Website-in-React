@@ -2,6 +2,7 @@ import profilePic from '../assets/images/profile-pic.png'
 import fileDownload from '../assets/images/file-download.png'
 import contactMail from '../assets/images/contact-mail.png'
 import pin from '../assets/images/pin.png'
+import resumePdf from '../assets/files/Resume.pdf'
 
 function Home() {
     const name = "Chirag Singh";
@@ -14,9 +15,8 @@ function Home() {
     ];
 
     const handleResumeClick = () => {
-        // Trigger PDF download
         const link = document.createElement('a');
-        link.href = 'src\\assets\\files\\Resume.pdf';
+        link.href = resumePdf;
         link.download = 'Resume-Chirag_Singh.pdf';
         link.click();
     };
