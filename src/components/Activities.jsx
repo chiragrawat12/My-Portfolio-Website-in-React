@@ -1,11 +1,18 @@
 import React, { useEffect, useState } from "react";
-import cert from "../assets/images/certificates/AZ900.jpeg";
+import lerohackpicture1 from "../assets/images/activities/lerohack/picture1.png";
+import lerohackpicture2 from "../assets/images/activities/lerohack/picture2.png";
+import lerohackpicture3 from "../assets/images/activities/lerohack/picture3.png";
+import lerohackpicture4 from "../assets/images/activities/lerohack/picture4.png";
+import lerohackpicture5 from "../assets/images/activities/lerohack/picture5.png";
+import lerohackpicture6 from "../assets/images/activities/lerohack/picture6.png";
+import lerohackpicture7 from "../assets/images/activities/lerohack/picture7.png";
+import lerohackpicture8 from "../assets/images/activities/lerohack/picture8.png";
+import lerohackpicture9 from "../assets/images/activities/lerohack/picture9.png";
 
-// Example image imports
-// import teenTurn1 from "../assets/images/activities/teen-turn-1.jpg";
-// import teenTurn2 from "../assets/images/activities/teen-turn-2.jpg";
-// import hackathon1 from "../assets/images/activities/hackathon-1.jpg";
-// import hackathon2 from "../assets/images/activities/hackathon-2.jpg";
+import teenturnpicture1 from "../assets/images/activities/teenturn/picture1.png";
+import teenturnpicture2 from "../assets/images/activities/teenturn/picture2.jpg";
+import teenturnpicture3 from "../assets/images/activities/teenturn/picture3.jpg";
+import teenturnpicture4 from "../assets/images/activities/teenturn/picture4.jpg";
 
 function Activities() {
     const [selectedActivity, setSelectedActivity] = useState(null);
@@ -14,51 +21,24 @@ function Activities() {
 
     const activities = [
         {
-            title: "Mentor - Teen-Turn Programme",
-            category: "Mentorship",
-            date: "2026",
-            organizer: "University of Limerick",
-            link: "",
-            description:
-                "Mentored teenage girls from underserved communities in STEM, supporting hands-on technical learning, guidance, and confidence-building through practical engagement.",
-            images: [
-                cert
-                // teenTurn1,
-                // teenTurn2,
-            ],
-        },
-        {
-            title: "Participant - Lero Hack 2026, Snapdragon: AI Unplugged",
+            title: "Lero Hack 2026 - Snapdragon: AI Unplugged Hackathon",
             category: "Hackathon",
             date: "2026",
             organizer: "University of Limerick",
-            link: "",
+            link: "https://www.linkedin.com/posts/chiragrawat12_qualcommlerohack-ai-machinelearning-activity-7450541346227908608-9ylo?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAACX1zroBUeiT6adA7J_MYQB3TnPjhS_5iWA",
             description:
-                "Participated in an AI-focused hackathon, collaborating under time constraints to design and build an edge AI solution with practical problem-solving and teamwork.",
-            images: [cert
-                // hackathon1,
-                // hackathon2,
-            ],
+                "Participated in an AI-focused hackathon, collaborating under time constraints to design and build an edge AI solution.",
+            images: [lerohackpicture1, lerohackpicture2, lerohackpicture3, lerohackpicture4, lerohackpicture5, lerohackpicture6, lerohackpicture7, lerohackpicture8, lerohackpicture9],
         },
         {
-            title: "University Events and Technical Networking",
-            category: "Community",
-            date: "2025 – 2026",
+            title: "Mentor - Teen-Turn Programme",
+            category: "Mentorship",
+            date: "2025 & 2026",
             organizer: "University of Limerick",
-            link: "",
+            link: "https://www.linkedin.com/posts/chiragrawat12_stem-activity-7404705667338645504--iR8?utm_source=share&utm_medium=member_desktop&rcm=ACoAACX1zroBUeiT6adA7J_MYQB3TnPjhS_5iWA",
             description:
-                "Actively participated in academic, technical, and networking activities, engaging with peers, mentors, and professionals across engineering and software domains.",
-            images: [],
-        },
-        {
-            title: "Postgraduate Academic Collaboration",
-            category: "Academic Involvement",
-            date: "2025 – 2026",
-            organizer: "MSc Software Engineering",
-            link: "",
-            description:
-                "Worked closely with classmates and faculty through software architecture, machine learning, and team-based academic projects while contributing to collaborative problem-solving.",
-            images: [],
+                "Mentored teenage girls from underserved communities in STEM, supporting hands-on technical learning and career encouragement.",
+            images: [teenturnpicture1, teenturnpicture2, teenturnpicture3, teenturnpicture4],
         },
     ];
 
@@ -114,19 +94,16 @@ function Activities() {
     return (
         <section id="activities" className="min-h-screen">
             <div
-                className="h-screen min-w-126 flex justify-around items-center px-4 py-16 md:px-8 lg:px-16 xl:px-20 bg-gradient-to-br from-[#0b1a3a] via-[#102d6b] to-[#1e90ff]"
+                className="min-h-screen xl:h-screen min-w-126 flex justify-around items-center px-4 py-16 md:px-8 lg:px-16 xl:px-20 bg-bg"
             >
                 <div className="mx-auto w-full max-w-7xl">
                     <div className="mb-8 md:mb-10">
-                        <h2 className="text-3xl md:text-4xl font-bold text-white mb-3">
+                        <h2 className="text-3xl md:text-4xl font-bold text-white mb-3 flex justify-center items-center">
                             Activities
                         </h2>
-                        <p className="text-sm sm:text-base md:text-lg text-blue-100 max-w-3xl leading-7">
-                            Mentorship, hackathons, collaboration, and community engagement that reflect my involvement beyond coursework and full-time engineering.
-                        </p>
                     </div>
 
-                    <div className="overflow-x-auto overflow-y-hidden pt-4 pb-4 thin-scrollbar">
+                    <div className="overflow-x-auto overflow-y-hidden pb-4 no-scrollbar pt-10">
                         <div className="flex flex-nowrap items-stretch gap-4 md:gap-6 snap-x snap-mandatory">
                             {activities.map((activity, index) => {
                                 const hasImages = activity.images && activity.images.length > 0;
@@ -136,7 +113,7 @@ function Activities() {
                                 return (
                                     <article
                                         key={index}
-                                        className="flex-none w-[88vw] sm:w-[75vw] md:w-[52vw] lg:w-[40vw] xl:w-[34vw] snap-start rounded-3xl border border-white/15 bg-white/10 backdrop-blur-md shadow-xl hover:bg-white/15 transition duration-300 overflow-hidden"
+                                        className="h-fit hover:-translate-y-1 flex-none w-[88vw] sm:w-[75vw] md:w-[52vw] lg:w-[40vw] xl:w-[34vw] snap-start rounded-3xl border border-white/15 bg-white/10 backdrop-blur-md shadow-xl hover:bg-white/15 hover:border-secondary transition duration-300 overflow-hidden"
                                     >
                                         {hasImages && (
                                             <div className="p-4 pb-0">
@@ -195,7 +172,7 @@ function Activities() {
                                                                             }))
                                                                         }
                                                                         className={`h-2.5 w-2.5 rounded-full transition ${dotIndex === currentIndex
-                                                                            ? "bg-[#eccc68]"
+                                                                            ? "bg-secondaryAlt"
                                                                             : "bg-white/50"
                                                                             }`}
                                                                     />
@@ -209,7 +186,7 @@ function Activities() {
 
                                         <div className="p-4 sm:p-5 md:p-6 flex flex-col h-full">
                                             <div className="mb-4">
-                                                <p className="text-xs sm:text-sm font-medium text-[#eccc68] mb-1">
+                                                <p className="text-xs sm:text-sm font-medium text-secondaryAlt mb-1">
                                                     {activity.category}
                                                 </p>
                                                 <h3 className="text-lg sm:text-xl font-bold text-white leading-snug mb-2">
@@ -232,7 +209,7 @@ function Activities() {
                                                     <button
                                                         type="button"
                                                         onClick={() => openModal(activity, currentIndex)}
-                                                        className="rounded-xl bg-white/15 px-4 py-2 text-sm sm:text-base text-white font-medium hover:bg-white/25 transition border border-white/10"
+                                                        className="cursor-pointer rounded-xl bg-white/15 px-4 py-2 text-sm sm:text-base text-white font-medium hover:bg-white/25 transition border border-white/10"
                                                     >
                                                         View Image
                                                     </button>
@@ -243,7 +220,7 @@ function Activities() {
                                                         href={activity.link}
                                                         target="_blank"
                                                         rel="noopener noreferrer"
-                                                        className="rounded-xl bg-[#eccc68] px-4 py-2 text-sm sm:text-base text-[#1b1b1b] font-medium hover:bg-[#ffd86b] transition"
+                                                        className="rounded-xl bg-secondary px-4 py-2 text-sm sm:text-base text-[#1b1b1b] font-medium hover:bg-secondaryAlt transition"
                                                     >
                                                         View Link
                                                     </a>
@@ -318,7 +295,7 @@ function Activities() {
                                         type="button"
                                         onClick={() => setSelectedImageIndex(index)}
                                         className={`h-2.5 w-2.5 rounded-full transition ${index === selectedImageIndex
-                                            ? "bg-[#eccc68]"
+                                            ? "bg-secondaryAlt"
                                             : "bg-white/40"
                                             }`}
                                     />

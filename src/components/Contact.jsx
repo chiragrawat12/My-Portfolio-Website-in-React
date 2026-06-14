@@ -152,11 +152,11 @@ function Contact() {
     return (
         <section
             id="contact"
-            className="min-w-126 min-h-screen w-full bg-gradient-to-br from-[#081226] via-[#0d1b34] to-[#12254a] px-4 py-16 md:px-8 lg:px-16 xl:px-20 flex justify-center items-center"
+            className="min-w-126 min-h-screen w-full bg-bgAlt px-4 py-16 md:px-8 lg:px-16 xl:px-20 flex justify-center items-center"
         >
             <div className="mx-auto max-w-7xl">
                 <div className="mb-12 text-center">
-                    <h2 className="text-3xl md:text-5xl font-bold text-[#8b7cf6] mb-4">
+                    <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">
                         Contact Me
                     </h2>
                 </div>
@@ -244,7 +244,7 @@ function Contact() {
                                 href={contactInfo.linkedin}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="flex items-center justify-center gap-3 rounded-2xl bg-blue-600 px-4 py-2 text-lg font-semibold text-white hover:bg-blue-500 transition"
+                                className="flex items-center justify-center gap-3 rounded-2xl bg-white/15 px-4 py-2 text-lg font-semibold text-white hover:bg-white/25 transition"
                             >
                                 <img
                                     src={linkedin}
@@ -258,7 +258,7 @@ function Contact() {
                                 href={contactInfo.github}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="flex items-center justify-center gap-3 rounded-2xl bg-slate-600/70 px-4 py-2 text-lg font-semibold text-white hover:bg-slate-500/70 transition"
+                                className="flex items-center justify-center gap-3 rounded-2xl bg-white/15 px-4 py-2 text-lg font-semibold text-white hover:bg-white/25 transition"
                             >
                                 <img
                                     src={github}
@@ -268,8 +268,8 @@ function Contact() {
                                 <span>View GitHub</span>
                             </a>
 
-                            <div className="rounded-2xl border border-blue-500/20 bg-blue-500/10 p-5">
-                                <h4 className="text-blue-400 text-xl font-semibold mb-3">
+                            <div className="rounded-2xl border border-bg/15 bg-bg/25 p-5">
+                                <h4 className="text-white text-xl font-semibold mb-3">
                                     Professional Response
                                 </h4>
                                 <p className="text-slate-300 leading-7">
@@ -288,7 +288,7 @@ function Contact() {
                         </h3>
                     </div>
                     <br />
-                    <div className="thin-scrollbar flex justify-center items-center">
+                    <div className="flex justify-center items-center">
                         <div className="columns-1 lg:columns-2">
                             {linkedinPosts.map((item, index) => (
                                 <div key={index}

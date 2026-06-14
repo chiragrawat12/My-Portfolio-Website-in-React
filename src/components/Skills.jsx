@@ -85,7 +85,7 @@ function Skills() {
     return (
         <section
             id="skills"
-            className="min-h-screen min-w-126 flex justify-center items-center bg-white px-4 py-16 md:px-8 lg:px-16 xl:px-20"
+            className="min-h-screen lg:h-screen min-w-126 flex justify-center items-center bg-white px-4 py-16 md:px-8 lg:px-16 xl:px-20"
         >
             <div className="mx-auto max-w-7xl w-full">
                 <div className="mb-12 text-center">
@@ -94,7 +94,7 @@ function Skills() {
                     </h2>
                 </div>
                 <br />
-                <div className="grid grid-cols-4 sm:grid-cols-5 md:grid-cols-6 lg:grid-cols-8 gap-8 lg:gap-6">
+                <div className="grid grid-cols-4 sm:grid-cols-5 md:grid-cols-6 lg:grid-cols-9 gap-8">
                     {skills.map((skill, index) => (
                         <div
                             key={index}

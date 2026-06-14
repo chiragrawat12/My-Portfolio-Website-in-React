@@ -176,7 +176,7 @@ function Projects() {
                         {projects.map((project, index) => (
                             <article
                                 key={index}
-                                className="border border-white/20 bg-white/12 backdrop-blur-md shadow-xl hover:bg-white/16 transition duration-300 hover:scale-103 hover:border-secondary flex-none h-fit w-[88vw] sm:w-[75vw] md:w-[48vw] lg:w-[36vw] xl:w-[30vw] snap-start rounded-3xl"
+                                className="border border-white/20 bg-white/12 backdrop-blur-md shadow-xl hover:bg-white/16 transition duration-300 hover:-translate-y-1 hover:border-secondary flex-none h-fit w-[88vw] sm:w-[75vw] md:w-[48vw] lg:w-[36vw] xl:w-[30vw] snap-start rounded-3xl"
                             >
                                 {project.image && (
                                     <div className="w-full h-44 sm:h-52 overflow-hidden bg-white rounded-t-3xl">

@@ -1,6 +1,18 @@
 import React, { useEffect, useState } from "react";
 
-import cert from "../assets/images/certificates/AZ900.jpeg";
+import certificate2023 from "../assets/images/achievements/highq/certificate2023.png";
+import certificate2024 from "../assets/images/achievements/highq/certificate2024.png";
+import highqaward from "../assets/images/achievements/highq/highqaward.png";
+import managercomment from "../assets/images/achievements/highq/managercomment.png";
+
+
+
+import qualitestappreciationpicture1 from "../assets/images/achievements/qualitestappreciation/picture1.png";
+import qualitestappreciationpicture2 from "../assets/images/achievements/qualitestappreciation/picture2.png";
+import qualitestappreciationpicture3 from "../assets/images/achievements/qualitestappreciation/picture3.png";
+
+import squadawardpicture1 from "../assets/images/achievements/squadaward/picture1.png";
+
 
 function Achievements() {
     const [selectedAchievement, setSelectedAchievement] = useState(null);
@@ -9,44 +21,45 @@ function Achievements() {
 
     const achievements = [
         {
-            title: "HighQ Award Winner - 2023",
+            title: "sQuad Award",
             category: "Professional Recognition",
-            date: "2023",
+            date: "2024",
             issuer: "Qualitest Infotech Pvt. Ltd.",
-            link: "",
+            link: "https://www.linkedin.com/posts/chiragrawat12_squadawards-teamwork-success-activity-7305453623759491072-7mBF?utm_source=share&utm_medium=member_desktop&rcm=ACoAACX1zroBUeiT6adA7J_MYQB3TnPjhS_5iWA",
             description:
-                "Recognized for delivering high-quality solutions and exceeding client expectations through impactful engineering contributions.",
-            images: [cert, cert, cert, cert, cert, cert, cert],
+                "Recognized as part of a high-performing team for collaboration, resilience, and delivering impactful results.",
+            images: [squadawardpicture1],
+        },
+        {
+            title: "Certificate of Appreciation",
+            category: "Professional Recognition",
+            date: "2024",
+            issuer: "Qualitest Infotech Pvt. Ltd.",
+            link: "https://www.linkedin.com/posts/chiragrawat12_thankyou-grateful-appreciation-ugcPost-7266895177179381761-7kll/?utm_source=share&utm_medium=member_desktop&rcm=ACoAACX1zroBUeiT6adA7J_MYQB3TnPjhS_5iWA",
+            description:
+                "Recognized for contributions, teamwork, and consistent performance in delivering quality engineering outcomes.",
+            images: [qualitestappreciationpicture1, qualitestappreciationpicture2, qualitestappreciationpicture3],
         },
         {
             title: "HighQ Award Winner - 2024",
             category: "Professional Recognition",
             date: "2024",
             issuer: "Qualitest Infotech Pvt. Ltd.",
-            link: "",
+            link: "https://www.linkedin.com/posts/chiragrawat12_grateful-achievementunlocked-teamappreciation-activity-7203479576528769024-onX_?utm_source=share&utm_medium=member_desktop&rcm=ACoAACX1zroBUeiT6adA7J_MYQB3TnPjhS_5iWA",
             description:
                 "Received recognition for continued technical excellence, reliable delivery, and strong contribution to business-critical projects.",
-            images: [],
+            images: [certificate2024, highqaward],
         },
         {
-            title: "Lero Hack 2026 - Snapdragon: AI Unplugged Hackathon",
-            category: "Hackathon",
-            date: "2026",
-            issuer: "University of Limerick",
-            link: "",
+            title: "HighQ Award Winner - 2023",
+            category: "Professional Recognition",
+            date: "2023",
+            issuer: "Qualitest Infotech Pvt. Ltd.",
+            link: "https://www.linkedin.com/posts/chiragrawat12_grateful-achievementunlocked-teamappreciation-activity-7203479576528769024-onX_?utm_source=share&utm_medium=member_desktop&rcm=ACoAACX1zroBUeiT6adA7J_MYQB3TnPjhS_5iWA",
             description:
-                "Participated in an AI-focused hackathon, collaborating under time constraints to design and build an edge AI solution.",
-            images: [],
-        },
-        {
-            title: "Mentor - Teen-Turn Programme",
-            category: "Leadership / Mentorship",
-            date: "2026",
-            issuer: "University of Limerick",
-            link: "",
-            description:
-                "Mentored teenage girls from underserved communities in STEM, supporting hands-on technical learning and career encouragement.",
-            images: [],
+                "Recognized for delivering high-quality solutions and exceeding client expectations through impactful engineering contributions.",
+            images: [managercomment, certificate2023],
+
         },
     ];
 
@@ -90,10 +103,12 @@ function Achievements() {
     };
 
     const goToCardImage = (achievementIndex, imageIndex, totalImages) => {
+        const normalizedIndex =
+            ((imageIndex % totalImages) + totalImages) % totalImages;
+
         setCurrentIndexes((prev) => ({
             ...prev,
-            [achievementIndex]:
-                imageIndex >= totalImages ? 0 : imageIndex,
+            [achievementIndex]: normalizedIndex,
         }));
     };
 
@@ -101,19 +116,16 @@ function Achievements() {
         <section id="achievements">
             <div
 
-                className="h-screen min-w-126 flex justify-around items-center px-4 py-16 md:px-8 lg:px-16 xl:px-20 bg-gradient-to-br from-[#0b1a3a] via-[#102d6b] to-[#1e90ff]"
+                className="min-h-screen xl:h-screen min-w-126 flex justify-around items-center px-4 py-16 md:px-8 lg:px-16 xl:px-20 bg-bgAlt"
             >
                 <div className="mx-auto w-full max-w-7xl">
                     <div className="mb-8 md:mb-10">
-                        <h2 className="text-3xl md:text-4xl font-bold text-white mb-3">
+                        <h2 className="text-3xl md:text-4xl font-bold text-white mb-3 flex justify-center items-center">
                             Achievements
                         </h2>
-                        <p className="text-sm sm:text-base md:text-lg text-blue-100 max-w-3xl leading-7">
-                            Awards, recognitions, hackathon participation, and mentorship moments from my academic and professional journey.
-                        </p>
                     </div>
 
-                    <div className="overflow-x-auto overflow-y-hidden pt-4 pb-4 thin-scrollbar">
+                    <div className="no-scrollbar overflow-x-auto overflow-y-hidden pb-4 pt-10">
                         <div className="flex flex-nowrap items-stretch gap-4 md:gap-6 snap-x snap-mandatory">
                             {achievements.map((achievement, index) => {
                                 const hasImages = achievement.images && achievement.images.length > 0;
@@ -123,7 +135,7 @@ function Achievements() {
                                 return (
                                     <article
                                         key={index}
-                                        className="flex-none w-[88vw] sm:w-[75vw] md:w-[52vw] lg:w-[40vw] xl:w-[34vw] snap-start rounded-3xl border border-white/15 bg-white/10 backdrop-blur-md shadow-xl hover:bg-white/15 transition duration-300 overflow-hidden"
+                                        className="h-fit hover:-translate-y-1 flex-none w-[88vw] sm:w-[75vw] md:w-[52vw] lg:w-[40vw] xl:w-[34vw] snap-start rounded-3xl border border-white/15 bg-white/10 backdrop-blur-md shadow-xl hover:bg-white/15 hover:border-secondary transition duration-300 overflow-hidden"
                                     >
                                         {hasImages && (
                                             <div className="p-4 pb-0">
@@ -182,7 +194,7 @@ function Achievements() {
                                                                             }))
                                                                         }
                                                                         className={`h-2.5 w-2.5 rounded-full transition ${dotIndex === currentIndex
-                                                                            ? "bg-[#eccc68]"
+                                                                            ? "bg-secondaryAlt"
                                                                             : "bg-white/50"
                                                                             }`}
                                                                     />
@@ -196,7 +208,7 @@ function Achievements() {
 
                                         <div className="p-4 sm:p-5 md:p-6 flex flex-col h-full">
                                             <div className="mb-4">
-                                                <p className="text-xs sm:text-sm font-medium text-[#eccc68] mb-1">
+                                                <p className="text-xs sm:text-sm font-medium text-secondaryAlt mb-1">
                                                     {achievement.category}
                                                 </p>
                                                 <h3 className="text-lg sm:text-xl font-bold text-white leading-snug mb-2">
@@ -219,7 +231,7 @@ function Achievements() {
                                                     <button
                                                         type="button"
                                                         onClick={() => openModal(achievement, currentIndex)}
-                                                        className="rounded-xl bg-white/15 px-4 py-2 text-sm sm:text-base text-white font-medium hover:bg-white/25 transition border border-white/10"
+                                                        className="cursor-pointer rounded-xl bg-white/15 px-4 py-2 text-sm sm:text-base text-white font-medium hover:bg-white/25 transition border border-white/10"
                                                     >
                                                         View Image
                                                     </button>
@@ -230,7 +242,7 @@ function Achievements() {
                                                         href={achievement.link}
                                                         target="_blank"
                                                         rel="noopener noreferrer"
-                                                        className="rounded-xl bg-[#eccc68] px-4 py-2 text-sm sm:text-base text-[#1b1b1b] font-medium hover:bg-[#ffd86b] transition"
+                                                        className="rounded-xl bg-secondary px-4 py-2 text-sm sm:text-base text-[#1b1b1b] font-medium hover:bg-secondaryAlt transition"
                                                     >
                                                         View Link
                                                     </a>
@@ -305,7 +317,7 @@ function Achievements() {
                                         type="button"
                                         onClick={() => setSelectedImageIndex(index)}
                                         className={`h-2.5 w-2.5 rounded-full transition ${index === selectedImageIndex
-                                            ? "bg-[#eccc68]"
+                                            ? "bg-secondaryAlt"
                                             : "bg-white/40"
                                             }`}
                                     />
