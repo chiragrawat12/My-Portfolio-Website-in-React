@@ -14,11 +14,18 @@ function Home() {
         { value: "English", label: "Technical", color: "#ffa502" }
     ];
 
-    const handleResumeClick = () => {
+    const handleResumeClick = async () => {
+        const response = await fetch(resumePdf);
+        const blob = await response.blob();
+
+        const url = window.URL.createObjectURL(blob);
         const link = document.createElement('a');
-        link.href = resumePdf;
+        link.href = url;
         link.download = 'Resume-Chirag_Singh.pdf';
+        document.body.appendChild(link);
         link.click();
+        document.body.removeChild(link);
+        window.URL.revokeObjectURL(url);
     };
 
     return (
