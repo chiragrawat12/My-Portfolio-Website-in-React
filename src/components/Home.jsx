@@ -3,10 +3,12 @@ import fileDownload from '../assets/images/file-download.png'
 import contactMail from '../assets/images/contact-mail.png'
 import pin from '../assets/images/pin.png'
 import resumePdf from '../assets/files/Resume.pdf'
+import useRevealOnScroll from "../hooks/useRevealOnScroll";
 
 function Home() {
     const name = "Chirag Singh";
     const rotationPattern = [true, false, true, false, true, false, true, false, true, false, true];
+    const [sectionRef, show] = useRevealOnScroll({ threshold: 0.2 });
 
     const stats = [
         { value: "3.5+", label: "Years of Experience", color: "#ffa502" },
@@ -30,7 +32,7 @@ function Home() {
 
     return (
         <section id="home" className='text-white bg-bg pt-20 md:pt-0 min-w-126 flex items-center justify-center bg-no-repeat bg-cover'>
-            <div className='container flex flex-wrap md:w-[85vw] lg:h-screen'>
+            <div ref={sectionRef} className={`container flex flex-wrap md:w-[85vw] lg:h-screen reveal-section ${show ? "show" : ""}`}>
                 <div className="picture-section pr-3 pl-3 md:pr-0 md:pl-0 flex-1 flex justify-center items-center h-full">
                     <div className="picture flex justify-start items-end w-120 h-120 bg-linear-to-r from-bg via-bgAlt to-primary">
                         <img width={420} src={profilePic} alt="my-picture" />

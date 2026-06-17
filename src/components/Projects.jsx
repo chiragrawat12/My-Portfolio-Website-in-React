@@ -10,9 +10,11 @@ import downloader from "../assets/images/projects/downloader.png"
 import rails from "../assets/images/projects/rails.png"
 import youtube from "../assets/images/projects/youtube.png"
 import bot from "../assets/images/projects/bot.png"
-
+import useRevealOnScroll from "../hooks/useRevealOnScroll";
 
 function Projects() {
+    const [sectionRef, show] = useRevealOnScroll({ threshold: 0.2 });
+
     const projects = [
         {
             title: "Flight Delay Prediction and Analysis",
@@ -164,7 +166,7 @@ function Projects() {
             id="projects"
             className="min-h-screen md:h-screen min-w-126 flex justify-center items-center bg-bg px-4 py-16 md:px-8 lg:px-16 xl:px-20"
         >
-            <div className="mx-auto w-full max-w-7xl">
+            <div ref={sectionRef} className={`mx-auto w-full max-w-7xl reveal-section ${show ? "show" : ""}`}>
                 <div className="">
                     <h2 className="text-3xl md:text-4xl font-bold text-white mb-3 flex justify-around items-center">
                         Projects

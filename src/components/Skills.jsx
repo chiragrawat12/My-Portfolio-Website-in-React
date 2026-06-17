@@ -35,8 +35,10 @@ import stripe from "../assets/images/skills/stripe.png";
 import googleapi from "../assets/images/skills/googleapi.png";
 import git from "../assets/images/skills/git.png";
 import github from "../assets/images/skills/github.png";
+import useRevealOnScroll from "../hooks/useRevealOnScroll";
 
 function Skills() {
+    const [sectionRef, show] = useRevealOnScroll({ threshold: 0.2 });
     const [activeSkill, setActiveSkill] = useState(null);
 
     const skills = [
@@ -87,7 +89,7 @@ function Skills() {
             id="skills"
             className="min-h-screen lg:h-screen min-w-126 flex justify-center items-center bg-white px-4 py-16 md:px-8 lg:px-16 xl:px-20"
         >
-            <div className="mx-auto max-w-7xl w-full">
+            <div ref={sectionRef} className={`reveal-section ${show ? "show" : ""} mx-auto max-w-7xl w-full`}>
                 <div className="mb-12 text-center">
                     <h2 className="pb-10 text-3xl md:text-4xl font-bold text-bg mb-3">
                         Skills & Tools

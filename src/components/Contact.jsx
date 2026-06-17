@@ -5,8 +5,10 @@ import linkedin from "../assets/images/contacts/linkedin.png"
 import github from "../assets/images/contacts/github.png"
 import leetcode from "../assets/images/contacts/leetcode.webp"
 import hackerrank from "../assets/images/contacts/hackerrank.webp"
+import useRevealOnScroll from "../hooks/useRevealOnScroll";
 
 function Contact() {
+    const [sectionRef, show] = useRevealOnScroll({ threshold: 0.2 });
     const contactInfo = {
         email: "chiragrawat12@gmail.com",
         phone: "+353 89 428 4845",
@@ -154,14 +156,14 @@ function Contact() {
             id="contact"
             className="min-w-126 min-h-screen w-full bg-bgAlt px-4 py-16 md:px-8 lg:px-16 xl:px-20 flex justify-center items-center"
         >
-            <div className="mx-auto max-w-7xl">
-                <div className="mb-12 text-center">
+            <div className={`mx-auto max-w-7xl`}>
+                <div ref={sectionRef} className={`reveal-section ${show ? "show" : ""} mb-12 text-center`}>
                     <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">
                         Contact Me
                     </h2>
                 </div>
                 <br />
-                <div className="p-5 grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+                <div ref={sectionRef} className={`reveal-section ${show ? "show" : ""} p-5 grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12`}>
                     <div>
                         <h3 className="text-3xl font-bold text-white mb-6">
                             Let&apos;s talk!

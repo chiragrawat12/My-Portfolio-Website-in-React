@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-
+import useRevealOnScroll from "../hooks/useRevealOnScroll";
 import certificate2023 from "../assets/images/achievements/highq/certificate2023.png";
 import certificate2024 from "../assets/images/achievements/highq/certificate2024.png";
 import highqaward from "../assets/images/achievements/highq/highqaward.png";
@@ -18,6 +18,7 @@ function Achievements() {
     const [selectedAchievement, setSelectedAchievement] = useState(null);
     const [selectedImageIndex, setSelectedImageIndex] = useState(0);
     const [currentIndexes, setCurrentIndexes] = useState({});
+    const [sectionRef, show] = useRevealOnScroll({ threshold: 0.2 });
 
     const achievements = [
         {
@@ -115,10 +116,9 @@ function Achievements() {
     return (
         <section id="achievements">
             <div
-
-                className="min-h-screen xl:h-screen min-w-126 flex justify-around items-center px-4 py-16 md:px-8 lg:px-16 xl:px-20 bg-bgAlt"
+                className={`min-h-screen xl:h-screen min-w-126 flex justify-around items-center px-4 py-16 md:px-8 lg:px-16 xl:px-20 bg-bgAlt`}
             >
-                <div className="mx-auto w-full max-w-7xl">
+                <div ref={sectionRef} className={`reveal-section ${show ? "show" : ""} mx-auto w-full max-w-7xl`}>
                     <div className="mb-8 md:mb-10">
                         <h2 className="text-3xl md:text-4xl font-bold text-white mb-3 flex justify-center items-center">
                             Achievements

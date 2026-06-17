@@ -6,9 +6,11 @@ import location from '../assets/images/location.png'
 import book from '../assets/images/book.png';
 import leftArrow from '../assets/images/left-arrow.png';
 import rightArrow from '../assets/images/right-arrow.png';
+import useRevealOnScroll from "../hooks/useRevealOnScroll";
 
 function Education() {
     const [currentUni, setCurrentUni] = useState(0);
+    const [sectionRef, show] = useRevealOnScroll({ threshold: 0.2 });
 
     const universities = [
         {
@@ -74,9 +76,9 @@ function Education() {
 
     return (
         <section id="education" className='min-h-screen lg:h-screen min-w-126 py-10 bg-bgAlt flex flex-col justify-around items-center'>
-            <h1 className='font-bold text-white text-4xl w-full flex justify-center items-center'>Academic Background</h1>
+            <h1 ref={sectionRef} className={`reveal-section ${show ? "show" : ""} font-bold text-white text-4xl w-full flex justify-center items-center`}>Academic Background</h1>
             {/* Carousel Navigation */}
-            <div className='flex justify-center gap-6 py-5'>
+            <div ref={sectionRef} className={`reveal-section ${show ? "show" : ""} flex justify-center gap-6 py-5`}>
                 <button
                     onClick={() => setCurrentUni((prev) => (prev - 1 + universities.length) % universities.length)}
                     className='w-8 h-8 flex justify-center items-center cursor-pointer bg-white/20 hover:bg-white/40 rounded-xl transition-all'
@@ -90,7 +92,7 @@ function Education() {
                     <img width={18} src={rightArrow} alt="" />
                 </button>
             </div>
-            <div className='flex flex-col w-full h-[90%] justify-center items-center'>
+            <div ref={sectionRef} className={`reveal-section ${show ? "show" : ""} flex flex-col w-full h-[90%] justify-center items-center`}>
                 <div className='border border-white/20 bg-white/12 backdrop-blur-md shadow-xl hover:bg-white/16 transition duration-300 w-[80%] md:w-[60%] h-9/10 p-5 cursor-pointer flex-col flex justify-center items-center rounded-3xl'>
                     <div className='flex flex-col md:flex-row w-full md:h-[35%] '>
                         <div className='flex-1 flex justify-center items-center'>

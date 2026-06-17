@@ -13,8 +13,10 @@ import teenturnpicture1 from "../assets/images/activities/teenturn/picture1.png"
 import teenturnpicture2 from "../assets/images/activities/teenturn/picture2.jpg";
 import teenturnpicture3 from "../assets/images/activities/teenturn/picture3.jpg";
 import teenturnpicture4 from "../assets/images/activities/teenturn/picture4.jpg";
+import useRevealOnScroll from "../hooks/useRevealOnScroll";
 
 function Activities() {
+    const [sectionRef, show] = useRevealOnScroll({ threshold: 0.2 });
     const [selectedActivity, setSelectedActivity] = useState(null);
     const [selectedImageIndex, setSelectedImageIndex] = useState(0);
     const [currentIndexes, setCurrentIndexes] = useState({});
@@ -94,9 +96,9 @@ function Activities() {
     return (
         <section id="activities" className="min-h-screen">
             <div
-                className="min-h-screen xl:h-screen min-w-126 flex justify-around items-center px-4 py-16 md:px-8 lg:px-16 xl:px-20 bg-bg"
+                className={`min-h-screen xl:h-screen min-w-126 flex justify-around items-center px-4 py-16 md:px-8 lg:px-16 xl:px-20 bg-bg`}
             >
-                <div className="mx-auto w-full max-w-7xl">
+                <div ref={sectionRef} className={`reveal-section ${show ? "show" : ""} mx-auto w-full max-w-7xl`}>
                     <div className="mb-8 md:mb-10">
                         <h2 className="text-3xl md:text-4xl font-bold text-white mb-3 flex justify-center items-center">
                             Activities

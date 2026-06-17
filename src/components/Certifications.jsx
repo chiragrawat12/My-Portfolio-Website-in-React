@@ -16,8 +16,10 @@ import cbeg from "../assets/images/certificates/cbeg.png";
 import azserverless from "../assets/images/certificates/azserverless.png";
 import az900bootcamp from "../assets/images/certificates/az900bootcamp.png";
 import dotnetintro from "../assets/images/certificates/dotnetintro.png";
+import useRevealOnScroll from "../hooks/useRevealOnScroll";
 
 function Certifications() {
+    const [sectionRef, show] = useRevealOnScroll({ threshold: 0.2 });
     const [selectedCertificate, setSelectedCertificate] = useState(null);
 
     const certificates = [
@@ -174,9 +176,9 @@ function Certifications() {
     return (
         <section id="certifications" className="min-h-screen">
             <div
-                className="min-h-screen xl:h-screen min-w-126 flex justify-center items-center px-4 py-16 md:px-8 lg:px-16 xl:px-20 bg-bg"
+                className={`min-h-screen xl:h-screen min-w-126 flex justify-center items-center px-4 py-16 md:px-8 lg:px-16 xl:px-20 bg-bg`}
             >
-                <div className="mx-auto w-full max-w-7xl">
+                <div ref={sectionRef} className={`reveal-section ${show ? "show" : ""} mx-auto w-full max-w-7xl`}>
                     <div className="mb-8 md:mb-10">
                         <h2 className="text-3xl md:text-4xl font-bold text-white mb-3 flex justify-center items-center">
                             Certifications

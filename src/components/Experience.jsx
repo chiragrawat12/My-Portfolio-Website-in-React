@@ -1,6 +1,9 @@
 import React from 'react'
+import useRevealOnScroll from "../hooks/useRevealOnScroll";
 
 function Experience() {
+    const [sectionRef, show] = useRevealOnScroll({ threshold: 0.2 });
+
     const experiences = [
         {
             role: "Engineer",
@@ -67,7 +70,7 @@ function Experience() {
             id="experience"
             className="min-h-screen min-w-126 bg-bgAlt px-4 py-16 md:px-8 lg:px-16 xl:px-20 flex justify-center items-center"
         >
-            <div className="mx-auto max-w-6xl">
+            <div ref={sectionRef} className={`mx-auto max-w-6xl reveal-section ${show ? "show" : ""}`}>
                 <div className="mb-12 text-center">
                     <h2 className="text-3xl md:text-4xl font-bold text-white mb-3">
                         Experience
