@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-
 import azureCert from "../assets/images/certificates/AZ900.jpeg";
 import michigan from "../assets/images/certificates/michigan.png";
 import ict from "../assets/images/certificates/ict.png";
@@ -17,8 +16,10 @@ import azserverless from "../assets/images/certificates/azserverless.png";
 import az900bootcamp from "../assets/images/certificates/az900bootcamp.png";
 import dotnetintro from "../assets/images/certificates/dotnetintro.png";
 import useRevealOnScroll from "../hooks/useRevealOnScroll";
+import useDragScroll from "../hooks/useDragScroll";
 
 function Certifications() {
+    const { scrollRef, dragHandlers } = useDragScroll();
     const [sectionRef, show] = useRevealOnScroll({ threshold: 0.2 });
     const [selectedCertificate, setSelectedCertificate] = useState(null);
 
@@ -185,7 +186,8 @@ function Certifications() {
                         </h2>
                     </div>
 
-                    <div className="no-scrollbar overflow-x-auto overflow-y-hidden pt-10">
+                    <div ref={scrollRef}
+                        {...dragHandlers} className="no-scrollbar overflow-x-auto overflow-y-hidden pt-10 cursor-grab select-none">
                         <div className="flex flex-nowrap items-stretch gap-4 md:gap-6 snap-x snap-mandatory">
                             {certificates.map((cert, index) => (
                                 <article

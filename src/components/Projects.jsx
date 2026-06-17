@@ -11,8 +11,10 @@ import rails from "../assets/images/projects/rails.png"
 import youtube from "../assets/images/projects/youtube.png"
 import bot from "../assets/images/projects/bot.png"
 import useRevealOnScroll from "../hooks/useRevealOnScroll";
+import useDragScroll from "../hooks/useDragScroll";
 
 function Projects() {
+    const { scrollRef, dragHandlers } = useDragScroll();
     const [sectionRef, show] = useRevealOnScroll({ threshold: 0.2 });
 
     const projects = [
@@ -173,7 +175,8 @@ function Projects() {
                     </h2>
                 </div>
                 <br />
-                <div className="overflow-x-auto overflow-y-hidden pt-4 pb-4 no-scrollbar">
+                <div ref={scrollRef}
+                    {...dragHandlers} className="overflow-x-auto overflow-y-hidden pt-4 pb-4 no-scrollbar cursor-grab select-none">
                     <div className="flex flex-nowrap items-stretch gap-4 md:gap-6 snap-x snap-mandatory md:px-10">
                         {projects.map((project, index) => (
                             <article

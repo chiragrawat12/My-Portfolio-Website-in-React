@@ -4,17 +4,14 @@ import certificate2023 from "../assets/images/achievements/highq/certificate2023
 import certificate2024 from "../assets/images/achievements/highq/certificate2024.png";
 import highqaward from "../assets/images/achievements/highq/highqaward.png";
 import managercomment from "../assets/images/achievements/highq/managercomment.png";
-
-
-
 import qualitestappreciationpicture1 from "../assets/images/achievements/qualitestappreciation/picture1.png";
 import qualitestappreciationpicture2 from "../assets/images/achievements/qualitestappreciation/picture2.png";
 import qualitestappreciationpicture3 from "../assets/images/achievements/qualitestappreciation/picture3.png";
-
 import squadawardpicture1 from "../assets/images/achievements/squadaward/picture1.png";
-
+import useDragScroll from "../hooks/useDragScroll";
 
 function Achievements() {
+    const { scrollRef, dragHandlers } = useDragScroll();
     const [selectedAchievement, setSelectedAchievement] = useState(null);
     const [selectedImageIndex, setSelectedImageIndex] = useState(0);
     const [currentIndexes, setCurrentIndexes] = useState({});
@@ -125,7 +122,8 @@ function Achievements() {
                         </h2>
                     </div>
 
-                    <div className="no-scrollbar overflow-x-auto overflow-y-hidden pb-4 pt-10">
+                    <div ref={scrollRef}
+                        {...dragHandlers} className="no-scrollbar overflow-x-auto overflow-y-hidden pb-4 pt-10 cursor-grab select-none">
                         <div className="flex flex-nowrap items-stretch gap-4 md:gap-6 snap-x snap-mandatory">
                             {achievements.map((achievement, index) => {
                                 const hasImages = achievement.images && achievement.images.length > 0;

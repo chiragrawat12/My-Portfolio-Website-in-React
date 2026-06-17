@@ -8,14 +8,15 @@ import lerohackpicture6 from "../assets/images/activities/lerohack/picture6.png"
 import lerohackpicture7 from "../assets/images/activities/lerohack/picture7.png";
 import lerohackpicture8 from "../assets/images/activities/lerohack/picture8.png";
 import lerohackpicture9 from "../assets/images/activities/lerohack/picture9.png";
-
 import teenturnpicture1 from "../assets/images/activities/teenturn/picture1.png";
 import teenturnpicture2 from "../assets/images/activities/teenturn/picture2.jpg";
 import teenturnpicture3 from "../assets/images/activities/teenturn/picture3.jpg";
 import teenturnpicture4 from "../assets/images/activities/teenturn/picture4.jpg";
 import useRevealOnScroll from "../hooks/useRevealOnScroll";
+import useDragScroll from "../hooks/useDragScroll";
 
 function Activities() {
+    const { scrollRef, dragHandlers } = useDragScroll();
     const [sectionRef, show] = useRevealOnScroll({ threshold: 0.2 });
     const [selectedActivity, setSelectedActivity] = useState(null);
     const [selectedImageIndex, setSelectedImageIndex] = useState(0);
@@ -105,7 +106,8 @@ function Activities() {
                         </h2>
                     </div>
 
-                    <div className="overflow-x-auto overflow-y-hidden pb-4 no-scrollbar pt-10">
+                    <div ref={scrollRef}
+                        {...dragHandlers} className="overflow-x-auto overflow-y-hidden pb-4 no-scrollbar pt-10 cursor-grab select-none">
                         <div className="flex flex-nowrap items-stretch gap-4 md:gap-6 snap-x snap-mandatory">
                             {activities.map((activity, index) => {
                                 const hasImages = activity.images && activity.images.length > 0;
